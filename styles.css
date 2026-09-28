@@ -1,0 +1,233 @@
+/* ==========================================================
+   HOJA DE ESTILOS ÚNICA DEL SITIO - IA CBTIS 260
+   Índice: 1 Variables · 2 Reset · 3 Encabezado · 4 Menú
+   5 Contenido · 6 Componentes · 7 Pie · 8 Extras · 9 Responsivo
+   ========================================================== */
+
+/* 1. VARIABLES DE LA PALETA */
+:root {
+  --rojo: #c1121f;
+  --rojo-oscuro: #8a0d17;
+  --fondo: #f4f6f8;
+  --blanco: #ffffff;
+  --texto: #222222;
+  --gris: #555555;
+  --borde: #dddddd;
+}
+
+/* 2. RESET Y BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; }
+
+/* Todas las imágenes se adaptan al ancho y conservan su proporción */
+img { max-width: 100%; height: auto; display: block; }
+
+/* Enlace para saltar al contenido (accesibilidad con teclado) */
+.saltar {
+  position: absolute; left: -999px; top: 0;
+  background: var(--rojo-oscuro); color: #fff; padding: 10px 15px; z-index: 300;
+}
+.saltar:focus { left: 0; }
+
+/* Foco visible para quienes navegan con teclado */
+a:focus-visible, button:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
+
+/* 3. ENCABEZADO */
+header {
+  background-color: var(--blanco);
+  padding: 20px 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+  /* Logo a la izquierda y texto a la derecha, centrados en conjunto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+header .logo-cbtis { width: 90px; height: auto; margin: 0; }
+.encabezado-texto { text-align: left; }
+header h1 { color: var(--rojo); font-size: 2.2rem; }
+header p { color: var(--gris); font-size: 1rem; font-weight: bold; }
+
+
+/* 4. MENÚ DE NAVEGACIÓN (fijo arriba) */
+nav {
+  background-color: var(--rojo);
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
+nav ul li a {
+  display: block; color: #fff; padding: 15px 20px;
+  font-weight: bold; transition: background-color 0.3s;
+}
+nav ul li a:hover { background-color: var(--rojo-oscuro); }
+/* Opción de la página actual */
+nav ul li a.activo { background-color: var(--rojo-oscuro); box-shadow: inset 0 -4px 0 #fff; }
+
+/* Botón hamburguesa: oculto en escritorio */
+.menu-toggle {
+  display: none; width: 100%; background: none; border: 0; color: #fff;
+  font-size: 1.1rem; font-weight: bold; padding: 14px 20px; text-align: left; cursor: pointer;
+}
+
+/* 5. CONTENIDO PRINCIPAL */
+main { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+
+.seccion {
+  background-color: var(--blanco);
+  border-radius: 8px; padding: 30px; margin-bottom: 35px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.seccion h2 {
+  color: var(--rojo); margin-bottom: 15px;
+  border-bottom: 3px solid var(--rojo);
+  display: inline-block; padding-bottom: 5px;
+}
+.seccion p { margin-bottom: 12px; text-align: left; }
+
+/* 6. COMPONENTES */
+
+/* Texto e imagen lado a lado */
+.texto-imagen { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+.texto-imagen .texto { flex: 1; min-width: 280px; }
+.texto-imagen .imagen { flex: 1; min-width: 280px; }
+
+/* Imágenes con proporción uniforme (16:10) en todo el sitio */
+.imagen img {
+  width: 100%; aspect-ratio: 16 / 10;
+  object-fit: cover;               /* fotos nuevas: llenan el marco */
+  border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  background-color: #eef1f4;
+}
+.imagen img.contener { object-fit: contain; }  /* ilustraciones: se ven completas */
+
+/* Rejilla de tarjetas */
+.rejilla {
+  display: grid; gap: 15px; margin: 20px 0 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.tarjeta {
+  background-color: #f8f9fa; border-left: 4px solid var(--rojo);
+  padding: 15px; border-radius: 4px;
+}
+.tarjeta h3 { color: var(--rojo-oscuro); font-size: 1.05rem; margin-bottom: 8px; }
+.tarjeta p { margin-bottom: 0; }
+.tarjeta .ejemplo { margin-top: 8px; font-size: 0.92rem; color: var(--gris); }
+
+/* Listas con viñetas */
+.lista-puntos { margin: 10px 0 0 20px; }
+.lista-puntos li { margin-bottom: 8px; }
+
+/* Línea de tiempo (página Historia) */
+.linea-tiempo { list-style: none; border-left: 3px solid var(--rojo); margin: 15px 0 0 8px; }
+.linea-tiempo li { position: relative; padding: 0 0 18px 22px; }
+.linea-tiempo li::before {
+  content: ""; position: absolute; left: -10px; top: 6px;
+  width: 17px; height: 17px; border-radius: 50%;
+  background: var(--rojo); border: 3px solid #fff;
+}
+.linea-tiempo strong { color: var(--rojo-oscuro); }
+
+/* Tabla comparativa (se desplaza en pantallas pequeñas) */
+.tabla-scroll { overflow-x: auto; margin-top: 20px; }
+.tabla-comparativa { width: 100%; border-collapse: collapse; min-width: 560px; }
+.tabla-comparativa th, .tabla-comparativa td {
+  border: 1px solid var(--borde); padding: 12px; text-align: left;
+}
+.tabla-comparativa th { background-color: var(--rojo); color: #fff; }
+.tabla-comparativa tr:nth-child(even) { background-color: #f9f9f9; }
+
+/* Glosario */
+.glosario-grid {
+  display: grid; gap: 15px; margin-top: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.glosario-item {
+  background-color: #f8f9fa; padding: 15px;
+  border-radius: 6px; border: 1px solid #e0e0e0;
+}
+.glosario-item h3 { color: var(--rojo); font-size: 1.05rem; margin-bottom: 5px; }
+.glosario-item p { margin-bottom: 0; }
+
+/* Video responsivo 16:9 */
+.video-contenedor {
+  width: 100%; max-width: 760px; margin: 0 auto;
+  aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden;
+}
+.video-contenedor iframe { width: 100%; height: 100%; border: 0; }
+
+/* 7. PIE DE PÁGINA */
+footer { background-color: #222; color: #fff; padding: 20px; margin-top: 20px; }
+.footer-contenido {
+  max-width: 1100px; margin: 0 auto; display: flex;
+  justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+}
+.footer-copyright { font-size: 0.9rem; }
+.footer-redes { display: flex; align-items: center; gap: 15px; }
+
+/* Contenedor de tamaño fijo: ambos íconos miden exactamente 35x35 px */
+.footer-redes a { display: block; width: 35px; height: 35px; }
+.footer-redes a img { width: 35px; height: 35px; max-width: none; }
+/* Facebook casi no tiene margen: se ajusta completo */
+.footer-redes .red-facebook img { object-fit: contain; border-radius: 50%; }
+/* Instagram tiene mucho margen blanco: 'cover' recorta el espacio sobrante */
+.footer-redes .red-instagram img { object-fit: cover; border-radius: 8px; }
+
+/* 8. EXTRAS DE JAVASCRIPT */
+/* Botón volver arriba (lo crea script.js) */
+.subir {
+  position: fixed; right: 20px; bottom: 20px; width: 46px; height: 46px;
+  border: 0; border-radius: 50%; background: var(--rojo); color: #fff;
+  font-size: 1.4rem; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 150;
+}
+.subir.visible { opacity: 1; visibility: visible; }
+.subir:hover { background: var(--rojo-oscuro); }
+
+/* Aparición suave al hacer scroll (solo si hay JavaScript) */
+.js .aparece { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+.js .aparece.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .aparece { opacity: 1; transform: none; transition: none; }
+}
+
+/* 9. DISEÑO RESPONSIVO */
+/* Texto justificado solo en pantallas anchas (evita huecos grandes) */
+@media (min-width: 769px) {
+  .seccion p { text-align: justify; hyphens: auto; }
+  .tarjeta p, .glosario-item p { text-align: left; }
+}
+
+@media (max-width: 768px) {
+  header h1 { font-size: 1.5rem; }
+
+  /* NUEVO: en celular el logo queda arriba del texto */
+  header { flex-direction: column; text-align: center; gap: 10px; }
+  .encabezado-texto { text-align: center; }
+
+  main { padding: 20px 12px; }
+  .seccion { padding: 20px; }
+
+  /* Menú hamburguesa */
+  .menu-toggle { display: block; }
+  nav ul { display: none; flex-direction: column; text-align: center; }
+  nav ul.abierto { display: flex; }
+  nav ul li a { border-top: 1px solid rgba(255,255,255,0.2); }
+
+  .texto-imagen { flex-direction: column; }
+  .texto-imagen .texto, .texto-imagen .imagen { width: 100%; min-width: 0; }
+  .footer-contenido { flex-direction: column; text-align: center; }
+}

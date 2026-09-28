@@ -1,0 +1,59 @@
+/* ==========================================================
+   script.js - Mejoras sencillas para el sitio de IA
+   ========================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Indica al CSS que JavaScript está activo (para las animaciones)
+  document.documentElement.classList.add('js');
+
+  /* 1. MENÚ HAMBURGUESA (celulares) */
+  var boton = document.querySelector('.menu-toggle');
+  var lista = document.getElementById('lista-menu');
+  if (boton && lista) {
+    boton.addEventListener('click', function () {
+      var abierto = lista.classList.toggle('abierto');
+      boton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    });
+  }
+
+  /* 2. RESALTAR LA PÁGINA ACTIVA
+     (respaldo por si el servidor no marcó la opción) */
+  var actual = window.location.pathname.split('/').pop() || 'index';
+  actual = actual.replace(/\.(html|php)$/, '') || 'index';
+  document.querySelectorAll('#lista-menu a').forEach(function (enlace) {
+    var destino = enlace.getAttribute('href').replace(/\.(html|php)$/, '');
+    if (destino === actual) {
+      enlace.classList.add('activo');
+      enlace.setAttribute('aria-current', 'page');
+    }
+  });
+
+  /* 3. BOTÓN "VOLVER ARRIBA" */
+  var subir = document.createElement('button');
+  subir.className = 'subir';
+  subir.type = 'button';
+  subir.setAttribute('aria-label', 'Volver arriba');
+  subir.textContent = '↑';
+  document.body.appendChild(subir);
+
+  window.addEventListener('scroll', function () {
+    subir.classList.toggle('visible', window.scrollY > 300);
+  });
+  subir.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* 4. APARICIÓN SUAVE AL HACER SCROLL */
+  var secciones = document.querySelectorAll('.seccion');
+  if ('IntersectionObserver' in window) {
+    var observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('visible');
+          observador.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    secciones.forEach(function (s) { s.classList.add('aparece'); observador.observe(s); });
+  }
+});
