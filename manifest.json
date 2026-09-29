@@ -1,33 +1,37 @@
 {
-  // Nombre completo de la aplicación (se muestra en instaladores y Splash Screen)
+  "_comment_info": "Documentación del Web App Manifest de PWA para CBTIS 260",
+
+  "_comment_name": "Nombre completo de la app. Aparece en instaladores y Splash Screen.",
   "name": "Inteligencia Artificial - CBTIS 260",
 
-  // Nombre corto (se muestra debajo del icono en el escritorio/pantalla de inicio)
+  "_comment_short_name": "Nombre corto. Se muestra debajo del icono en la pantalla de inicio.",
   "short_name": "IA CBTIS260",
 
-  // Ruta del archivo que se abre al ejecutar la aplicación
+  "_comment_start_url": "Página inicial que se abre al ejecutar la PWA desde el icono.",
   "start_url": "aplicaciones.html",
 
-  // Modo de visualización: Oculta la interfaz del navegador para simular una app nativa
+  "_comment_display": "standalone: Oculta la barra de direcciones del navegador para simular una app nativa.",
   "display": "standalone",
 
-  // Color de fondo de la pantalla de carga (Splash Screen) mientras inicia la app
+  "_comment_background_color": "Color de fondo para la pantalla de bienvenida (Splash Screen).",
   "background_color": "#ffffff",
 
-  // Color de la barra de estado y encabezado del sistema operativo (Azul institucional)
+  "_comment_theme_color": "Color de la barra de estado y la barra de título del dispositivo.",
   "theme_color": "#004b93",
 
-  // Bloquea la orientación de la aplicación en modo vertical
+  "_comment_orientation": "portrait: Fuerza el modo vertical en pantallas de dispositivos móviles.",
   "orientation": "portrait",
 
-  // Lista de iconos que utiliza el sistema operativo según la resolución requerida
+  "_comment_icons": "Rutas de imágenes que el sistema operativo usará como icono de la app.",
   "icons": [
     {
+      "_comment": "Icono de tamaño mediano (192x192 px) para pantallas estándar.",
       "src": "imagenes/LOGO.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
+      "_comment": "Icono de alta resolución (512x512 px) para Splash Screen e instalador.",
       "src": "imagenes/LOGO.png",
       "sizes": "512x512",
       "type": "image/png"
