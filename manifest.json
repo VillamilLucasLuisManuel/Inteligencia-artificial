@@ -6,16 +6,15 @@
   "background_color": "#ffffff",
   "theme_color": "#004b93",
   "orientation": "portrait",
-  "icons": [
+ "icons": [
     {
-      "src": "https://github.io",
+      "src": "imagenes/LOGO.png",
       "sizes": "192x192",
-      "type": "image/LOGO.png"
+      "type": "image/png"
     },
     {
-      "src": "https://github.io",
+      "src": "imagenes/LOGO.png",
       "sizes": "512x512",
-      "type": "image/LOGO.png"
+      "type": "image/png"
     }
   ]
-}
