@@ -1,0 +1,21 @@
+{
+  "name": "Inteligencia Artificial - CBTIS 260",
+  "short_name": "IA CBTIS260",
+  "start_url": "https://villamillucasluismanuel.github.io/Inteligencia-artificial/aplicaciones.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004b93",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://github.io",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://github.io",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
