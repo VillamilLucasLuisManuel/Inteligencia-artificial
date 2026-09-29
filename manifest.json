@@ -10,12 +10,12 @@
     {
       "src": "https://github.io",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/LOGO.png"
     },
     {
       "src": "https://github.io",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/LOGO.png"
     }
   ]
 }
