@@ -1,12 +1,26 @@
-
 {
+  // Nombre completo de la aplicación (se muestra en instaladores y Splash Screen)
   "name": "Inteligencia Artificial - CBTIS 260",
+
+  // Nombre corto (se muestra debajo del icono en el escritorio/pantalla de inicio)
   "short_name": "IA CBTIS260",
+
+  // Ruta del archivo que se abre al ejecutar la aplicación
   "start_url": "aplicaciones.html",
+
+  // Modo de visualización: Oculta la interfaz del navegador para simular una app nativa
   "display": "standalone",
+
+  // Color de fondo de la pantalla de carga (Splash Screen) mientras inicia la app
   "background_color": "#ffffff",
+
+  // Color de la barra de estado y encabezado del sistema operativo (Azul institucional)
   "theme_color": "#004b93",
+
+  // Bloquea la orientación de la aplicación en modo vertical
   "orientation": "portrait",
+
+  // Lista de iconos que utiliza el sistema operativo según la resolución requerida
   "icons": [
     {
       "src": "imagenes/LOGO.png",
