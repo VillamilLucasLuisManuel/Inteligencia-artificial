@@ -1,40 +1,44 @@
 {
   "_comment_info": "Documentación del Web App Manifest de PWA para CBTIS 260",
-
   "_comment_name": "Nombre completo de la app. Aparece en instaladores y Splash Screen.",
   "name": "Inteligencia Artificial - CBTIS 260",
-
   "_comment_short_name": "Nombre corto. Se muestra debajo del icono en la pantalla de inicio.",
   "short_name": "IA CBTIS260",
-
   "_comment_start_url": "Página inicial que se abre al ejecutar la PWA desde el icono.",
   "start_url": "aplicaciones.html",
-
   "_comment_display": "standalone: Oculta la barra de direcciones del navegador para simular una app nativa.",
   "display": "standalone",
-
   "_comment_background_color": "Color de fondo para la pantalla de bienvenida (Splash Screen).",
   "background_color": "#ffffff",
-
   "_comment_theme_color": "Color de la barra de estado y la barra de título del dispositivo.",
   "theme_color": "#004b93",
-
   "_comment_orientation": "portrait: Fuerza el modo vertical en pantallas de dispositivos móviles.",
   "orientation": "portrait",
-
+  "_comment_id_scope": "id y scope: identifican la app y el alcance del Service Worker (todo el sitio).",
+  "id": "./index.html",
+  "scope": "./",
   "_comment_icons": "Rutas de imágenes que el sistema operativo usará como icono de la app.",
   "icons": [
     {
-      "_comment": "Icono de tamaño mediano (192x192 px) para pantallas estándar.",
-      "src": "imagenes/LOGO.png",
+      "_comment": "Icono estándar 192x192 px.",
+      "src": "icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "_comment": "Icono de alta resolución (512x512 px) para Splash Screen e instalador.",
-      "src": "imagenes/LOGO.png",
+      "_comment": "Icono estándar 512x512 px para Splash Screen e instalador.",
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "_comment": "Icono maskable 512x512 px (Android recorta en círculo/cuadrado sin cortar el logo).",
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
