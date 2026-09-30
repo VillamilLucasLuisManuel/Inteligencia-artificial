@@ -66,3 +66,37 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+
+/* ==========================================================
+   AVISO DEL VIDEO SIN CONEXIÓN
+   El video de YouTube necesita internet. Solo cuando no hay
+   conexión se muestra un aviso encima; con conexión no cambia nada.
+   ========================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+  var contenedor = document.querySelector('.video-contenedor');
+  if (!contenedor) return;
+  var iframe = contenedor.querySelector('iframe');
+  var aviso = null;
+
+  function mostrarAviso() {
+    if (aviso) return;
+    aviso = document.createElement('div');
+    aviso.setAttribute('role', 'status');
+    aviso.textContent = 'Sin conexión: conéctate a internet para ver el video.';
+    aviso.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;' +
+      'justify-content:center;text-align:center;padding:16px;background:#f2f2f2;' +
+      'color:#333;font-size:1rem;';
+    contenedor.style.position = 'relative';
+    contenedor.appendChild(aviso);
+  }
+  function quitarAviso() {
+    if (!aviso) return;
+    aviso.remove();
+    aviso = null;
+    if (iframe) { iframe.src = iframe.src; } // recarga el video al volver el internet
+  }
+
+  if (!navigator.onLine) mostrarAviso();
+  window.addEventListener('offline', mostrarAviso);
+  window.addEventListener('online', quitarAviso);
+});
